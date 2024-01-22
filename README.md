@@ -1,6 +1,6 @@
 [![Open in Gitpod](https://img.shields.io/badge/Open_in-Gitpod-white?logo=gitpod)](https://gitpod.io/#https://github.com/gear-foundation/dapps-template-gear-academy)
 
-# Homework Templates for Gear Academy
+# Homework Templates for Gear Academy (Adan Borja Cadena)
 
 Templates for the Gear Academy homework.
 
