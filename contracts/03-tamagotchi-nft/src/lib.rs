@@ -11,9 +11,10 @@ extern fn handle() {
     // TODO: 0️⃣ Copy the `handle` function from the previous lesson and push changes to the master branch
     let input_message:TmgAction=msg::load()
         .expect("Error in loading TmgAction");
-    let tamagotchi = unsafe { 
-        TAMAGOTCHI.get_or_insert(Default::default()) 
-    };
+  //  let tamagotchi = unsafe { 
+  //      TAMAGOTCHI.get_or_insert(Default::default()) 
+ //   };
+ let tamagotchi = state_mut();
     match input_message{
         TmgAction::Name=>{
             msg::reply(TmgEvent::Name(tamagotchi.name.clone()),0)
@@ -78,6 +79,12 @@ extern fn state() {
     // TODO: 0️⃣ Copy the `handle` function from the previous lesson and push changes to the master branch
     let tamagotchi = unsafe { TAMAGOTCHI.take().expect("Unexpected error in taking state") };
     msg::reply(tamagotchi, 0).expect("Failed to share state");
+}
+
+fn state_mut() -> &'static mut Tamagotchi {
+    let state = unsafe { TAMAGOTCHI.as_mut() };
+//    debug_assert!(state.is_some(), "State is not initialized");
+    unsafe { state.unwrap_unchecked() } 
 }
 
 #[no_mangle]
