@@ -1,16 +1,16 @@
 [package]
 name = "tamagotchi-nft"
-version.workspace = true
-edition.workspace = true
-publish.workspace = true
+version = "0.1.0"
+edition = "2021"
 
 [dependencies]
-gstd.workspace = true
-tamagotchi-nft-io.workspace = true
+gstd = { git = "https://github.com/gear-tech/gear.git", tag = "v1.0.2", features = ["debug"] }
+tamagotchi-nft-io = { path = "io" }
 
 [build-dependencies]
-gear-wasm-builder.workspace = true
-tamagotchi-nft-io.workspace = true
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", tag = "v1.0.2", features = ["wasm-opt"] }
+tamagotchi-nft-io = { path = "io" }
 
 [dev-dependencies]
-gtest.workspace = true
+gtest = { git = "https://github.com/gear-tech/gear.git", tag = "v1.0.2" }
+tamagotchi-nft-io = { path = "io" }
